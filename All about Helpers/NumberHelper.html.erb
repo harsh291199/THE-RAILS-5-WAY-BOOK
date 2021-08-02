@@ -1,0 +1,51 @@
+<!---------------- Number Helper ------------------>
+
+<%# number_to_currency %>
+
+number_to_currency(1234567890.50)
+
+number_to_currency(1234567890.506, precision: 3)
+
+<%# number_to_human %>
+
+number_to_human(123)
+
+number_to_human(1234567)
+
+number_to_human(489939, precision: 4)
+
+<%# number_to_human_size %>
+
+number_to_human_size(123)
+
+number_to_human_size(1234)
+
+number_to_human_size(1234567, precision: 2)
+
+<%# number_to_percentage %>
+
+number_to_percentage(100)
+
+number_to_percentage(302.0574, precision: 2)
+
+<%# number_to_phone %>
+
+number_to_phone(1235551234)
+
+number_to_phone("1235551234", area_code: true)
+
+number_to_phone("1235551234", delimiter: " ")
+
+<%# number_with_delimiter %>
+
+number_with_delimiter(12345678)
+
+number_with_delimiter(12345678.05)
+
+number_with_delimiter(12345678, delimiter: ".")
+
+<%# number_with_precision %>
+
+number_with_precision(lll.2345)
+
+number_with_precision(lll.2345, precision: 2)

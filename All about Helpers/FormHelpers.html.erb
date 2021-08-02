@@ -1,0 +1,112 @@
+<!---------------- Form helpers ------------------> 
+
+<%# Creating forms for models %>
+<%# Example: %>
+= form_for :person do |f|
+  .field
+    First name:
+    = f.text_field :first_name
+  .field
+    Last name:
+    = f.text_field :last_name
+  .field
+    Bio:
+    = f.text_area :bio
+  .field
+    Admin?
+    = f.check_box :admin
+  .actions
+    = f.submit
+
+<%# form_for Options %>
+<%# Example: %>
+form_for person, as: :client do |f|
+f.text_field :first_name
+
+<%# How Form Helpers Get Their Values %>
+<%# Example: %>
+= form_for line_item do |f|
+  = f.text_field :rate
+
+<%# Integrating Additional Objects in One Form %>
+<%# Example %>
+= form_for person do |f| %>
+  First name:
+  = f.text_field :first_name
+  Last name:
+  = f.text_field :last_name
+  .permissions
+    = fields_for person.permission do |permission_fields|
+    Admin?:
+    = permission_fields.check_box :admin
+
+<%# Nested Attributes %>
+<%# Example %>
+= form_for person do |f|
+  = f.fields_for :address do |address_fields|
+    Street:
+    = address_fields.text_field :street
+    Zip code:
+    = address_fields.text_field :zip_code
+
+
+<%# fields_for with One-to-Many Associations %>
+<%# Example: %>
+= form_for person do |f|
+  = f.fields_for :projects do |project_fields|
+    .project
+      Name:
+      = project_fields.text_field :name
+
+
+<%# Customized Form Builders %>
+<%# Example: %>
+= form_for @person, :builder => MyFormBuilder do |f|
+  I am a child:
+  = f.div_radio_button(:admin, "child")
+  I am an adult:
+  = f.div_radio_button(:admin, "adult")
+
+
+<%# Form Inputs %>
+
+<%# Example: button %>
+f.button('Create post')
+
+f.button do
+  content_tag(:strong, 'Ask me!')
+end
+
+<%# Example: checkbox %>
+check_box('timesheet', 'approved')
+
+<%# Example: color_field  %>
+color_field(:car, :paint_color)
+
+<%# Example: date_field  %>
+date_field(:person, :birthday)
+date_field(:user, :born_on, value: "1984-05-12")
+
+<%# Example: email_field  %>
+email_field(:user, :email)
+
+<%# Example: label %>
+label('timesheet', 'approved')
+
+<%# Example: month_field %>
+month_field(:user, :born_on)
+
+<%# Example: password_field %>
+password_field(:user, :password, value: user.password)
+
+<%# Example: radio_button %>
+radio_button(:post, :category, 'rails')
+
+<%# Example: text_area %>
+text_area(:comment, :body, size: '25x10')
+
+<%# Example: time_field %>
+time_field(:task, :started_at)
+
+<%# Example: week_field %>
+week_field(:task, :started_at)

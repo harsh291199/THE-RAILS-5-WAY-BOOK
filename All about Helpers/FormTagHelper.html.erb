@@ -1,0 +1,33 @@
+<!---------------- Form Tag Helper ------------------> 
+
+<%# button_tag %>
+button_tag('Submit')
+button_tag('Some call to action',type: 'button')
+
+<%# check_box_tag %>
+check_box_tag('remember_me')
+check_box_tag('remember_me', 1, true)
+
+<%# file_field_tag %>
+= form_tag '/upload', multipart: true do
+= label_tag :file, 'File to upload'
+= file_field_tag :file
+= submit_tag
+
+<%# form_tag %>
+form_tag('/posts')
+form_tag('/posts/1', method: :patch)
+form_tag('/upload', multipart: true)
+
+<%# submit_tag %>
+submit_tag('Save article', data: { disable_with: 'Please wait...' })
+
+<%# text_area_tag %>
+text_area_tag(:body, nil, size: "25x10")
+
+
+<!---------- JavaScript Helper --------->
+
+escape_javascript(javascript)
+
+javascript_tag(content_or_options_with_block = nil, html_options = {}, &block)
