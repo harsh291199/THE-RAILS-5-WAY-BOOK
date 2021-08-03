@@ -1,0 +1,26 @@
+-# Helpers
+
+-# Object Reference []
+
+%li[@post]
+  %h4= @post.title
+  = @post.excerpt
+
+-# page_class
+
+%body{ class: page_class }
+
+-# list_of(enum, opts={}) { |item|...}
+
+%ul
+  = list_of [1, 2, 3] do |item|
+    Number #{item}
+
+
+-# Filters
+
+-# Example:
+:markdown
+  # The Rails 5 Way
+  
+  Some even more awesome **Rails** related content
