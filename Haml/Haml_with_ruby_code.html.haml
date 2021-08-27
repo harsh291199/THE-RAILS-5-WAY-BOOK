@@ -1,0 +1,33 @@
+-# Evaluating Ruby Code
+
+%p= %w(foo bar).join(' ')
+
+- if flash.notice
+  .notice= flash.notice
+
+-# Interpolation
+
+%p By: #{post.author_name}
+
+%p= "By: #{post.author_name}"
+
+-# Escaping/Unescaping HTML
+
+&= "Coookies & cream"
+
+!= "Remember the awful <blink> tag?"
+
+-# Escaping the First Character of a Line
+
+%p
+  \= equality for all =
+
+-# Multiline Declarations
+
+#content
+  %p= h( |
+    "While possible to write" +              |
+    "multiline Ruby code, " +                |
+    "it is not the Haml way" +               |
+    "as you should eliminate as much Ruby" + |
+    "in your views as possible")             |

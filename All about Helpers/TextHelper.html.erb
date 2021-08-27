@@ -1,0 +1,33 @@
+<!---------------- Text Helper ------------------>
+
+<%# concat %>
+def wrap(&block)
+  concat(content_tag(:div, capture(&block), class: "wrapped_content"))
+end
+
+<%# current_cycle %>
+- [1,2,3,4].each do |item|
+  %div(style="background-color:#{cycle('red', 'green', 'blue')}")
+    %span(style="color:dark#{current_cycle}")= item
+
+<%# cycle %>
+%table
+  - @items.each do |item|
+    %tr{ class: cycle('even', 'odd') }
+      %td= item
+
+<%# xcerpt %>
+excerpt('This is an example', 'an', radius: 5)
+
+<%# highlight %>
+highlight('You searched for: rails', 'rails')
+
+<%# pluralize %>
+pluralize(1, 'person')
+pluralize(3, 'person', 'users')
+
+<%# truncate %>
+truncate("Once upon a time in a world far far away", length: 7)
+
+<%# word_wrap %>
+word_wrap('Once upon a time', line_width: 8)

@@ -1,0 +1,48 @@
+-# Gemfile
+gem 'haml-rails'
+
+-# Creating an Element
+
+-# Example
+%header content
+
+-# Attributes
+
+-# Example
+%a { title: @article.title, href: article_path(@article) } Title
+
+-# Example of second style
+%a (title=@article.title href=article_path(@article)) Title
+
+-# Data Attributee
+
+-# Example
+%article{ data: {author_id: 1 } } Lorem Ipsum...
+
+-# Other Example
+%article{ data: { author: { id:1, name:"Kevin Wu"} } } Lorem Ipsum...
+
+-# Boolean Attributee
+
+-# Example
+%input{ type: 'text', required: true }
+
+-# Classes and IDe
+
+-# Example
+#content
+  .entry.featured
+  %h3.title Haml
+  %p.body Lorem Ipsum...
+
+%article.featured{ class: @article.visibility }
+
+%article{ id: [@article.category, :article, @article.id] }
+
+-# Implicit Dive
+
+-# Example
+# container
+  .content Lorem Ipsum...
+
+

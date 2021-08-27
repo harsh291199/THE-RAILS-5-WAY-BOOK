@@ -1,0 +1,28 @@
+<!---------------- URL Helper ------------------>
+
+<%# button_to %>
+button_to("New", action: "new")
+
+button_to "Delete Image", { action: "delete", id: @image.id }, method: :delete, data: { confirm: "Are you sure?" }
+
+<%# current_page %>
+current_page?(action: 'process')
+
+current_page?(controller: 'shop', action: 'checkout')
+
+<%# link_to %>
+link_to "Help", help_widgets_path
+
+link_to "Delete", widget_path(@widget), method: :delete, data: { confirm: "Are you sure?" }
+
+<%# link_to_unless_current %>
+link_to_unless_current("Comment", { controller: 'comments', action: 'new}) do
+  link_to("Go back", posts_path)
+end
+
+<%# mail_to %>
+mail_to "me@domain.com"
+
+mail_to "me@domain.com", "My email"
+
+mail_to "me@domain.com", "My email", cc: "ccaddress@domain.com", subject: "This is an email"
